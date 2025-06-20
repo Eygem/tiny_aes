@@ -72,11 +72,16 @@ TinyAES.encrypt("test")
 
 ## API
 
-- `TinyAES.encrypt(plaintext, aad \\ "")`: Encrypts plaintext, returning `<<iv::binary-16, tag::binary-16, ciphertext::binary>>` or `{:error, reason}`.
-- `TinyAES.decrypt(ciphertext, aad \\ "")`: Decrypts ciphertext, returning `{:ok, plaintext}` or `{:error, reason}`.
-- `TinyAES.puts_generate_key_env()`: Generates, prints, and returns `:ok` for a Base64-encoded 32-byte key.
-- `TinyAES.generate_key_env()`: Generates a Base64-encoded 32-byte key.
-- `TinyAES.get_key_env()`: Retrieves and decodes the key from `ENCRYPTION_KEY` returning `{:ok, key}` or `{:error, reason}`.
+- `TinyAES.encrypt(plaintext, aad \\ "")`:
+    - Encrypts plaintext, returning `<<iv::binary-16, tag::binary-16, ciphertext::binary>>` or `{:error, reason}`.
+- `TinyAES.decrypt(ciphertext, aad \\ "")`:
+    - Decrypts ciphertext, returning `{:ok, plaintext}` or `{:error, reason}`.
+- `TinyAES.puts_generate_key_env()`:
+    - Generates, prints, and returns `:ok` for a Base64-encoded 32-byte key.
+- `TinyAES.generate_key_env()`:
+    - Generates a Base64-encoded 32-byte key.
+- `TinyAES.get_key_env()`:
+    - Retrieves and decodes the key from `ENCRYPTION_KEY` returning `{:ok, key}` or `{:error, reason}`.
 
 
 
