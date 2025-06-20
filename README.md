@@ -1,5 +1,6 @@
 # TinyAES
 
+[![Hex.pm](https://img.shields.io/hexpm/v/tiny_aes.svg)](https://hex.pm/packages/tiny_aes)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/Eygem/tiny_aes/blob/main/LICENSE)
 [![Build Status](https://github.com/Eygem/tiny_aes/actions/workflows/ci.yml/badge.svg)](https://github.com/Eygem/tiny_aes/actions)
 
