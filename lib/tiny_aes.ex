@@ -1,6 +1,6 @@
 defmodule TinyAES do
   @moduledoc """
-  TinyAES is a lightweight, dependency-free wrapper for AES-256-GCM encryption and decryption
+  TinyAES is a lightweight, dependency-free Elixir wrapper for AES-256-GCM encryption and decryption
   using Erlang's `:crypto` module. It provides robust error handling, support for Additional
   Authenticated Data (AAD), and a simple API. The encryption key is securely retrieved from
   the `ENCRYPTION_KEY` environment variable.
