@@ -8,7 +8,7 @@ defmodule TinyAES.MixProject do
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
       description:
-        "A lightweight, dependency-free AES-256-GCM encryption library with AAD support, robust error handling and simple API. The encryption key is securely retrieved from the ENCRYPTION_KEY environment variable.",
+        "A lightweight, dependency-free Elixir wrapper for AES-256-GCM encryption and decryption with AAD support, robust error handling and simple API. The encryption key is securely retrieved from the ENCRYPTION_KEY environment variable.",
       package: package(),
       deps: deps(),
       name: "TinyAES",
