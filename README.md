@@ -1,4 +1,4 @@
-# EnvLoader
+# TinyAES
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/Eygem/tiny_aes/blob/main/LICENSE)
 
@@ -19,7 +19,7 @@ Add **TinyAES** to your `mix.exs` dependencies:
 ```elixir
 {:tiny_aes, "~> 0.1"}
 ```
-Run mix deps.get to fetch the dependency.
+Run `mix deps.get` to fetch the dependency.
 
 ## Setup
 
@@ -29,7 +29,7 @@ mix run -e 'TinyAES.puts_generate_key_env()'
 # Copy the output to .env:
 ENCRYPTION_KEY=your_base64_encoded_key_here
 ```
-The function outputs a base64-encoded key, e.g., `OuaO+dtNNgxJjQLGHMLJ9m8rSQDsVdqkGrf7ySSj3Yg=`. Add the key to your `.env` file (or equivalent):
+The function outputs a base64-encoded key, e.g., `OuaO+dtNNgxJjQLGHMLJ9m8rSQDsVdqkGrf7ySSj3Yg=`. Add the key to your `.env` file:
 
 Ensure the `ENCRYPTION_KEY` environment variable is set in your application (e.g., using [`env_loader`](https://github.com/Eygem/env_loader) or [`dotenv`](https://github.com/avdi/dotenv_elixir)).
 

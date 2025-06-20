@@ -52,16 +52,16 @@ defmodule TinyAES do
   - `{:error, String.t()}`: If the encryption key is invalid.
 
   ## Examples
-  iex> ciphertext = TinyAES.encrypt("Hello, world!")
-  iex> byte_size(ciphertext) >= 32
-  `true`
+      iex> ciphertext = TinyAES.encrypt("Hello, world!")
+      iex> byte_size(ciphertext) >= 32
+      true
 
-  iex> ciphertext = TinyAES.encrypt("data", "aad")
-  iex> {:ok, "data"} = TinyAES.decrypt(ciphertext, "aad")
+      iex> ciphertext = TinyAES.encrypt("data", "aad")
+      iex> {:ok, "data"} = TinyAES.decrypt(ciphertext, "aad")
 
-  iex> System.delete_env("ENCRYPTION_KEY")
-  iex> TinyAES.encrypt("test")
-  `{:error, "Encryption key not found in environment variable ENCRYPTION_KEY"}`
+      iex> System.delete_env("ENCRYPTION_KEY")
+      iex> TinyAES.encrypt("test")
+      {:error, "Encryption key not found in environment variable ENCRYPTION_KEY"}
   """
   def encrypt(plaintext, aad \\ "") do
     # Get the encryption key
@@ -108,22 +108,22 @@ defmodule TinyAES do
   - `aad`: Additional Authenticated Data used during encryption (string or binary, optional, defaults to `""`).
 
   ## Examples
-  iex> ciphertext = TinyAES.encrypt("Hello, world!")
-  iex> TinyAES.decrypt(ciphertext)
-  `{:ok, "Hello, World!"}`
+      iex> ciphertext = TinyAES.encrypt("Hello, world!")
+      iex> TinyAES.decrypt(ciphertext)
+      {:ok, "Hello, World!"}
 
-  iex> TinyAES.decrypt(encrypted, "wrong_aad")
-  `{:error, "Decryption failed: unknown error"}`
+      iex> TinyAES.decrypt(encrypted, "wrong_aad")
+      {:error, "Decryption failed: unknown error"}
 
-  iex> TinyAES.decrypt(<<0::128>>)
-  `{:error, "Ciphertext must be a binary with at least 32 bytes"}`
+      iex> TinyAES.decrypt(<<0::128>>)
+      {:error, "Ciphertext must be a binary with at least 32 bytes"}
 
-  iex> TinyAES.decrypt("not a binary")
-  `{:error, "Ciphertext must be a binary with at least 32 bytes"}`
+      iex> TinyAES.decrypt("not a binary")
+      {:error, "Ciphertext must be a binary with at least 32 bytes"}
 
-  iex> System.delete_env("ENCRYPTION_KEY")
-  iex> TinyAES.decrypt(TinyAES.encrypt("test"))
-  `{:error, "Encryption key not found in environment variable ENCRYPTION_KEY"}`
+      iex> System.delete_env("ENCRYPTION_KEY")
+      iex> TinyAES.decrypt(TinyAES.encrypt("test"))
+      {:error, "Encryption key not found in environment variable ENCRYPTION_KEY"}
   """
   def decrypt(ciphertext, aad \\ "")
 
@@ -203,13 +203,13 @@ defmodule TinyAES do
   - a Base64-encoded string.
 
   ## Examples
-  iex> key = TinyAES.generate_key_env()
-  iex> String.length(key) > 0
-  `true`
+      iex> key = TinyAES.generate_key_env()
+      iex> String.length(key) > 0
+      true
 
-  iex> {:ok, decoded} = Base.decode64(TinyAES.generate_key_env())
-  iex> byte_size(decoded)
-  `32`
+      iex> {:ok, decoded} = Base.decode64(TinyAES.generate_key_env())
+      iex> byte_size(decoded)
+      32
   """
   def generate_key_env do
     :crypto.strong_rand_bytes(32) |> Base.encode64()
@@ -223,9 +223,9 @@ defmodule TinyAES do
   - `:ok`
 
   ## Examples
-  iex> TinyAES.puts_generate_key_env()
-  # Prints: "PNu96VvFplhWeR/ojYPtDHiTgAdGxjPs9NGKl0Zn3fA=" (example; actual key is random)
-  `:ok`
+      iex> TinyAES.puts_generate_key_env()
+      # Prints: "PNu96VvFplhWeR/ojYPtDHiTgAdGxjPs9NGKl0Zn3fA=" (example; actual key is random)
+      :ok
   """
   def puts_generate_key_env do
     generate_key_env() |> IO.puts()
@@ -246,15 +246,15 @@ defmodule TinyAES do
       iex> System.put_env("ENCRYPTION_KEY", TinyAES.generate_key_env())
       iex> {:ok, key} = TinyAES.get_key_env()
       iex> byte_size(key)
-      `32`
+      32
 
       iex> System.delete_env("ENCRYPTION_KEY")
       iex> TinyAES.get_key_env()
-      `{:error, "Encryption key not found in environment variable ENCRYPTION_KEY"}`
+      {:error, "Encryption key not found in environment variable ENCRYPTION_KEY"}
 
       iex> System.put_env("ENCRYPTION_KEY", "invalid")
       iex> TinyAES.get_key_env()
-      `{:error, "Invalid encryption key: must be a 32-byte base64-encoded string"}`
+      {:error, "Invalid encryption key: must be a 32-byte base64-encoded string"}
   """
   def get_key_env do
     case System.get_env("ENCRYPTION_KEY") do
