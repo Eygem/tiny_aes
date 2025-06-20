@@ -12,7 +12,7 @@
 - **AES-256-GCM**: Secure, authenticated encryption with 16-byte IV and tag.
 - **AAD Support**: Optional Additional Authenticated Data for enhanced security.
 - **Key Management**: Environment-based key retrieval with Base64 encoding.
-- **3-tuples Compatible**: Handles the latest `:crypto` exception format.
+- **3-tuples Compatible**: Handles the latest `:crypto` exception format introduced with Erlang OTP 25.
 
 ## Installation
 
