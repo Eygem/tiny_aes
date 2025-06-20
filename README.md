@@ -1,6 +1,7 @@
 # TinyAES
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/Eygem/tiny_aes/blob/main/LICENSE)
+[![Build Status](https://github.com/Eygem/tiny_aes/actions/workflows/ci.yml/badge.svg)](https://github.com/Eygem/tiny_aes/actions)
 
 **TinyAES** is a lightweight, dependency-free wrapper for AES-256-GCM encryption and decryption using Erlang's `:crypto` module. It provides robust error handling, support for Additional Authenticated Data (AAD), and a simple API. The encryption key is securely retrieved from the `ENCRYPTION_KEY` environment variable.
 
